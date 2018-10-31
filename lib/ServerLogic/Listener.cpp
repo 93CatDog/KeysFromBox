@@ -40,5 +40,5 @@ class Listener
 
      Listener::~Listener()
      {
-         delete(this->request);
+         
      }
