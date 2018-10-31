@@ -1,18 +1,19 @@
-#include <string>
+
+#include <Arduino.h>
 
 class Listener
 {
     private:
-    string request;
+    String request;
     
      public:
         Listener();
 
-        Listener(string _request);
+        Listener(String _request);
 
-        void SetRequest(string _request);
+        void SetRequest(String _request);
 
-        string GetRequest();
+        String GetRequest();
 
         ~Listener();
 };
@@ -22,17 +23,17 @@ class Listener
 
      }
 
-     Listener::Listener(string _request)
+     Listener::Listener(String _request)
      {
          this->request = _request;
      }
 
-     void Listener::SetRequest(string _request)
+     void Listener::SetRequest(String _request)
      {
          this->request = _request;
      }
 
-     string Listener::GetRequest()
+     String Listener::GetRequest()
      {
          return this->request;
      }
