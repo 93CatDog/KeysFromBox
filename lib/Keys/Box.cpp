@@ -17,7 +17,7 @@
 
      Key* Box::GetKeyById(int id)
      {
-         return *(this->keys + id);
+         return *(this->keys + (id - 1));
      }
 
      void Box::SetKeys(Key** _keys)

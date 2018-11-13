@@ -1,8 +1,11 @@
-#include <Arduino.h>
+#include <D://pojects//arduino-Project//KeysFromBox//lib//ServerLogic//User.h>
 #include <D://pojects//arduino-Project//KeysFromBox//lib//Keys//Box.h>
 #include <D://pojects//arduino-Project//KeysFromBox//lib//Keys//Key.h>
 #include <D://pojects//arduino-Project//KeysFromBox//lib//ServerLogic//Listener.h>
 
+  void Test();
+
+  User* arrayUsers;
   int countOfKeys = 5; //количество ключей
   Box* box = new Box(countOfKeys); //коробка
   Listener* listener = new Listener; //"сервер", принимает запрос в виде числа (номер от 1 до 5)
@@ -16,10 +19,16 @@ void setup() {
     *(box->GetKeys() + count) = new Key;
     box->GetKeyById(count)->SetUserId(count + 1);
     box->GetKeyById(count)->SetIsPresent(true);
+    box->GetKeyById(count)->SetAccessLevel(2);
   }
+  /*
   box->GetKeyById(1)->SetIsPresent(false);
-  box->GetKeyById(4)->SetIsPresent(false);
-
+  box->GetKeyById(1)->SetAccessLevel(1);
+  box->GetKeyById(1)->SetRoomNumber(702);
+  box->GetKeyById(5)->SetIsPresent(false);
+  box->GetKeyById(5)->SetAccessLevel(3);
+  box->GetKeyById(5)->SetRoomNumber(806);
+  */
   Serial.begin(9600);
 
   Serial.println("Starting . . .");
@@ -27,7 +36,11 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  Test();
+}
 
+void Test()
+{
 //ввод номера ключа
 if(Serial.available()) 
 {
