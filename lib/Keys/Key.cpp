@@ -19,7 +19,7 @@
          this->isPresent = _isPresent;
      }
 
-     int Key::GetIsPresent()
+     bool Key::GetIsPresent()
      {
          return this->isPresent;
      }

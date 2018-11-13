@@ -1,41 +1,42 @@
-
 #include <Arduino.h>
-
-class Listener
-{
-    private:
-    String request;
-    
-     public:
-        Listener();
-
-        Listener(String _request);
-
-        void SetRequest(String _request);
-
-        String GetRequest();
-
-        ~Listener();
-};
+#include <Listener.h>
 
      Listener::Listener()
      {
 
      }
 
+     Listener::Listener(int _number)
+     {
+         SetRequest(_number);
+     }
+
      Listener::Listener(String _request)
      {
-         this->request = _request;
+         SetRequest(_request);
+     }
+
+     void Listener::SetRequest(int _number)
+     {
+         if (_number > 0)
+         {
+            this->numberOfKey = _number;        
+         }
      }
 
      void Listener::SetRequest(String _request)
      {
-         this->request = _request;
+         if (_request != NULL)
+         {
+            _request.trim();
+            this->numberOfKey = _request.toInt();
+         
+         }
      }
 
-     String Listener::GetRequest()
+     int Listener::GetIndexOfKey()
      {
-         return this->request;
+         return this->numberOfKey - 1;
      }
 
      Listener::~Listener()

@@ -13,7 +13,7 @@
 
         void SetIsPresent(bool);
    
-        int GetIsPresent();
+        bool GetIsPresent();
 
         void SetUserId(int _userId);
    

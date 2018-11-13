@@ -3,18 +3,20 @@ class Key;
  class Box
  {
      private:
-      Key* keys;
+      Key** keys;
 
      public:
       Box();
 
-      Box(Key*);
+      Box(int count);
 
-      Key GetKeyById(int);
+      Box(Key**);
 
-      void SetKeys(Key*);
+      Key* GetKeyById(int);
 
-      Key* GetKeys();
+      void SetKeys(Key**);
+
+      Key** GetKeys();
 
       ~Box();
  };
